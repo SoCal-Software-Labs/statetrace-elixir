@@ -84,7 +84,7 @@ defmodule StatetraceElixir.Annotations do
   def process_conn(conn, options) do
     repo = Keyword.fetch!(options, :repo)
     get_actor = Keyword.get(options, :get_actor, &get_nil/1)
-    get_action_url = Keyword.get(options, :get_action_url, &get_nil/1)
+    get_action_url = Keyword.get(options, :get_action_url, &get_current_url/1)
 
     conn
     |> process_session!(repo, get_actor)

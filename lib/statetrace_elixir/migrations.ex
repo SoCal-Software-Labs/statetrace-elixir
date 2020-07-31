@@ -77,9 +77,9 @@ defmodule StatetraceElixir.Migrations do
 
       create table(:statetrace_annotations, primary_key: false) do
         add(:uuid, :uuid, primary_key: true)
-        add(:id, :integer)
-        add(:timestamp, :utc_datetime_usec)
-        add(:kind, :string)
+        add(:id, :integer, null: false)
+        add(:timestamp, :utc_datetime_usec, null: false)
+        add(:kind, :string, null: false)
         add(:meta, :json)
         add(:parent_id, :integer)
         add(:parent_timestamp, :utc_datetime_usec)

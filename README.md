@@ -1,6 +1,7 @@
 # StatetraceElixir
 
-**TODO: Add description**
+Elixir integration for https://statetrace.com
+
 
 ## Installation
 
@@ -15,15 +16,13 @@ def deps do
 end
 ```
 
-After the packages are installed you must create a database migration to
-add the `statetrace_annotations` table to your database:
+After the packages are installed you must create a database migration to add the `statetrace_annotations` table to your database:
 
 ```bash
 mix ecto.gen.migration add_statetrace_annotations_table
 ```
 
-Open the generated migration in your editor and call the `up` and `down`
-functions on `Oban.Migrations`:
+Open the generated migration in your editor and call the `up` and `down` functions on `StatetraceElixir.Migrations`:
 
 ```elixir
 defmodule MyApp.Repo.Migrations.AddStatetraceAnnotationsTable do
@@ -41,11 +40,21 @@ defmodule MyApp.Repo.Migrations.AddStatetraceAnnotationsTable do
 end
 ```
 
-Wrap &action/2 in your controllers in a transaction and annotate it.
+
+New versions may require additional migrations, however, migrations will never change between versions and they are always idempotent.
+
+Now, run the migration to create the table:
+
+```bash
+mix ecto.migrate
+```
+
+
+Next we need to annotate your http requests' transactions. Wrap &action/2 in your controllers in a transaction and annotate it.
 
 Its easiest to add this to `<YourProject>Web`
 
-```
+```elixir
 defmodule <YourProject>Web do
   def controller do
     quote do
@@ -77,16 +86,6 @@ defmodule <YourProject>Web do
     end
   end
 end
-```
-
-This will run all of Oban's versioned migrations for your database. Migrations
-between versions are idempotent and will _never_ change after a release. As new
-versions are released you may need to run additional migrations.
-
-Now, run the migration to create the table:
-
-```bash
-mix ecto.migrate
 ```
 
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
