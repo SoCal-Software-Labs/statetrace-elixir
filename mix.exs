@@ -4,6 +4,7 @@ defmodule StatetraceElixir.MixProject do
   def project do
     [
       app: :statetrace_elixir,
+      description: "Elixir implementation for https://statetrace.com",
       version: "0.1.0",
       elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
@@ -23,7 +24,8 @@ defmodule StatetraceElixir.MixProject do
   defp deps do
     [
       {:ecto_sql, "~> 3.4"},
-      {:phoenix, "~> 1.5.3"}
+      {:phoenix, "~> 1.5.3"},
+      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
     ]
   end
 
@@ -32,8 +34,7 @@ defmodule StatetraceElixir.MixProject do
       maintainers: ["Kyle Hanson"],
       licenses: ["MIT"],
       links: %{github: "https://github.com/SoCal-Software-Labs/statetrace-elixir"},
-      files:
-        ~w(assets/js lib priv CHANGELOG.md LICENSE.md mix.exs package.json README.md .formatter.exs)
+      files: ~w(lib LICENSE.md mix.exs README.md .formatter.exs)
     ]
   end
 end
