@@ -5,15 +5,14 @@ defmodule StatetraceElixir.MixProject do
     [
       app: :statetrace_elixir,
       source_url: "https://github.com/SoCal-Software-Labs/statetrace-elixir",
-      homepage_url: "https://www.statetrace.com",
       description: "Elixir implementation for https://www.statetrace.com",
-      version: "0.1.0",
+      version: "0.1.1",
       elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       package: package(),
       docs: [
-        main: "StatetraceElixir.Annotations",
+        main: "readme",
         logo: "./logo.svg",
         extras: ["README.md"]
       ]

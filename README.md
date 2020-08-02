@@ -72,7 +72,7 @@ defmodule <YourProject>Web do
         args = [conn, conn.params]
 
         with {_, response} <-
-               StatetraceLicensing.Repo.transaction(fn ->
+               <YourProject>.Repo.transaction(fn ->
                  StatetraceElixir.Annotations.process_conn(conn,
                    get_actor: &current_actor/1,
                    repo: <YourProject>.Repo
