@@ -1,6 +1,6 @@
 # StatetraceElixir
 
-Elixir integration for https://statetrace.com
+Elixir integration for [https://www.statetrace.com](https://www.statetrace.com)
 
 
 ## Installation

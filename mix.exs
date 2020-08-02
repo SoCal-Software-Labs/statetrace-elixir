@@ -4,12 +4,19 @@ defmodule StatetraceElixir.MixProject do
   def project do
     [
       app: :statetrace_elixir,
-      description: "Elixir implementation for https://statetrace.com",
+      source_url: "https://github.com/SoCal-Software-Labs/statetrace-elixir",
+      homepage_url: "https://www.statetrace.com",
+      description: "Elixir implementation for https://www.statetrace.com",
       version: "0.1.0",
       elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      package: package()
+      package: package(),
+      docs: [
+        main: "StatetraceElixir.Annotations",
+        logo: "./logo.svg",
+        extras: ["README.md"]
+      ]
     ]
   end
 
